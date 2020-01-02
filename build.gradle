@@ -45,9 +45,9 @@ if (System.getenv("githubtoken") != null)
         owner "samuele0"
         // default is the last part of your group. Eg group: "com.github.breadmoirai" => owner: "breadmoirai"
         repo "Markdown-Office" // by default this is set to your project name
-        tagName "CI" // by default this is set to "v${project.version}"
+        tagName "CI-${System.properties['os.detected.name']}" // by default this is set to "v${project.version}"
         targetCommitish "master" // by default this is set to "master"
-        releaseName "CI" // Release title, by default this is the same as the tagName
+        releaseName "CI-${System.properties['os.detected.name']}" // Release title, by default this is the same as the tagName
         body "" // by default this is empty
         draft false // by default this is false
         prerelease false // by default this is false
