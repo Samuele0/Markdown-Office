@@ -19,7 +19,7 @@ dependencies {
     compile project(":plugins")
 }
 javafx {
-    modules = ['javafx.controls','javafx.fxml']
+    modules = ['javafx.controls', 'javafx.fxml']
 }
 mainClassName = "markdownoffice/com.github.samuele0.markdownoffice.MyApp"
 
@@ -28,11 +28,10 @@ jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
         name = 'Markdown Office'
-        jvmArgs = ['--add-opens', 'java.base/java.lang=com.github.samuele0.markdownoffice.merged.module', '--module-path','$DIR/../plugins/*']
+        jvmArgs = ['--add-opens', 'java.base/java.lang=com.github.samuele0.markdownoffice.merged.module', '--module-path', '$DIR/../plugins/*']
 
     }
     forceMerge('log4j-api')
     //javaHome = "/usr/lib/jvm/default/"
 }
-
 applicationDefaultJvmArgs = ['--add-opens', 'java.base/java.lang=com.google.guice']

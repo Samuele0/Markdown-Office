@@ -1,6 +1,7 @@
 package com.github.samuele0.markdownoffice;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import javafx.fxml.Initializable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,7 +13,7 @@ public class MyController implements Initializable {
     Logger log = LogManager.getLogger();
 
     @Inject
-    public MyController(String s) {
+    public MyController(@Named("application.hellomessage") String s) {
         log.error(s);
     }
 

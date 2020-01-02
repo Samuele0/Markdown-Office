@@ -22,7 +22,6 @@ public class MyApp extends Application {
         System.out.println("Registered Plugins: "+ServiceLoader.load(Plugin.class).stream().count());
         System.setProperty("com.google.inject.internal.cglib.$experimental_asm7", "true");
         URL url= getClass().getResource("/fxml/mainVIew.fxml");
-        System.out.println(url);
         Parent root = new MyFxmlLoader(url, ResourceBundle.getBundle("bundles/main")).load();
         Scene s = new Scene(root);
         primaryStage.setScene(s);
