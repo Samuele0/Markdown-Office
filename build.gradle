@@ -52,7 +52,7 @@ githubRelease {
     body "" // by default this is empty
     draft false // by default this is false
     prerelease false // by default this is false
-    releaseAssets project.file("${buildDir}/distributions/").listFiles
+    releaseAssets project.file("${buildDir}/distributions/").listFiles()
     // this points to which files you want to upload as assets with your release
     overwrite true // by default false; if set to true, will delete an existing release with the same tag and name
     apiEndpoint "https://api.github.com" // should only change for github enterprise users
