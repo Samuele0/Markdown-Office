@@ -5,6 +5,8 @@ os:
 env:
   global:
     secure: TltmLaXHmL2pq0elzxq21J7E2i+ZSJYdaivcfvXBlp2PmHqUOjq3KBSqpb8IHjzJ03FJzRArM7oJ4Asca1CjJuhJWG3qENvrVvetqKJX3PcLbYZk2sdE61S9JWImhw36DO331mQtUALOSlQPQOHcV0T2Fj47lIonBz07AZ9ifPS6wmjBvt6w31RL9tZCXKzXgo0hwIxXig0WxnxQYNiD0a86mmtoNYONmAUAuB8NusjvlAVsXvRKXJSe8XrqhaXizUDqBFL+/NbQRjVcIabrZg7JE5ImzR8IIGfH7FPBxEOX9M/KdXxDcXwhN7IIXYzs9tLfUcdOhwdQBja8JIMXHlGJ+wMuOLQ9VOHEX6VeU77ypFUM+Ea/KV6qbfWNV/0lJXRgD81So5vvLzlwLCH0yPThSKUxXIeUic2T1lunf9VgV/H9ON/lOD5mXx7sejCOm8BYNsxLUsB/RK8RSgKpctCkipDqV0M9DPP4ArS86o/EYK4mKgDYR/kveR2tOptGRsdywrini88XGBQCk+Wa/+zEELBUYrUYDnhQgt66yCWtmriWHtQQJhFrRqV+i4zVPFP+cEdphGvAjGQaxcf/uMnO+fVEpZLIKPgkKeLYnNBLUFyqV/xVp6aQ4odEqIHeqUneg0y7abK07ka2mKDj4y+NSSpR1kIFqFHW9oAXPtQ=
+jdk:
+  - openjdk11
 before_cache:
 - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
 - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
