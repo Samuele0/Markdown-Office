@@ -36,12 +36,7 @@ jlink {
     //javaHome = "/usr/lib/jvm/default/"
 }
 applicationDefaultJvmArgs = ['--add-opens', 'java.base/java.lang=com.google.guice']
-if (System.getenv("githubtoken") != null) {
-    println(project.file(buildDir))
-    for(fil in project.file("${buildDir}/distributions/").listFiles()){
-        println(fil.path)
-    }
-
+if (System.getenv("githubtoken") != null)
     githubRelease {
         token System.getenv("githubtoken")// This is your personal access token with Repo permissions
         // You get this from your user settings > developer settings
@@ -62,4 +57,8 @@ if (System.getenv("githubtoken") != null) {
         overwrite true // by default false; if set to true, will delete an existing release with the same tag and name
         apiEndpoint "https://api.github.com" // should only change for github enterprise users
     }
+
+tasks.githubRelease.doFirst {
+    println("${buildDir}/distributions/")
+    println(project.file("${buildDir}/distributions/").listFiles().length)
 }
