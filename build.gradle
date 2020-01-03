@@ -36,7 +36,8 @@ jlink {
     //javaHome = "/usr/lib/jvm/default/"
 }
 applicationDefaultJvmArgs = ['--add-opens', 'java.base/java.lang=com.google.guice']
-
+println("Github Token:"+System.getenv("githubtoken"))
+if(System.getenv("githubtoken")!=null)
 githubRelease {
     token(System.getenv("githubtoken"))// This is your personal access token with Repo permissions
     // You get this from your user settings > developer settings
