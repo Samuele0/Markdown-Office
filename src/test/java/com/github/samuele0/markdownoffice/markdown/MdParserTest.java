@@ -43,7 +43,6 @@ public class MdParserTest {
 
     @Test
     public void testStateCall() {
-
         String source = "aaaa";
         DocumentNode tree = parser.parse(source);
         verify(state, times(4)).accept('a');
