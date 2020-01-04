@@ -2,7 +2,6 @@ package com.github.samuele0.markdownoffice.markdown;
 
 import com.github.samuele0.markdownoffice.document.DocumentNode;
 import com.github.samuele0.markdownoffice.document.DocumentRoot;
-import com.google.inject.BindingAnnotation;
 import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,7 +37,7 @@ public class MdParser {
      */
     public DocumentNode parse(Reader reader) throws IOException {
         DocumentRoot root = new DocumentRoot();
-        ParserState state = provider.get("root");
+        ParserState state = provider.get("root", root);
         int ch;
         while ((ch = reader.read()) != -1)
             state = state.accept((char) ch);
