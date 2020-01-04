@@ -3,6 +3,7 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.5'
     id 'org.beryx.jlink' version '2.1.9'
     id "com.github.breadmoirai.github-release" version "2.2.10"
+    id 'jacoco'
 }
 
 group 'com.github.samuele0.markdownoffice'
@@ -27,6 +28,16 @@ javafx {
     modules = ['javafx.controls', 'javafx.fxml']
 }
 mainClassName = "markdownoffice/com.github.samuele0.markdownoffice.MyApp"
+
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+
+    }
+}
+
 
 jlink {
     imageZip = project.file("${buildDir}/distributions/MarkDown-Office-${System.properties['os.detected.name']}.zip")
