@@ -38,7 +38,7 @@ public class MdParser {
      */
     public DocumentNode parse(Reader reader) throws IOException {
         DocumentRoot root = new DocumentRoot();
-        ParserState state = provider.root();
+        ParserState state = provider.get("root");
         int ch;
         while ((ch = reader.read()) != -1)
             state = state.accept((char) ch);

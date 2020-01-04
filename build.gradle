@@ -19,6 +19,10 @@ dependencies {
     testCompile "org.mockito:mockito-core:2.+"
     compile project(":plugins")
 }
+
+/* ============================================================================/
+/================================PLUGIN CONFIGURATION==========================/
+/=============================================================================*/
 javafx {
     modules = ['javafx.controls', 'javafx.fxml']
 }
@@ -36,29 +40,28 @@ jlink {
     //javaHome = "/usr/lib/jvm/default/"
 }
 applicationDefaultJvmArgs = ['--add-opens', 'java.base/java.lang=com.google.guice']
-println("Github Token:"+System.getenv("githubtoken"))
-if(System.getenv("githubtoken")!=null)
-githubRelease {
-    token(System.getenv("githubtoken"))// This is your personal access token with Repo permissions
-    // You get this from your user settings > developer settings
-    // If this value is not set, a login dialog will prompt you for your credentials.
-    // 2fa is not supported
-    owner "samuele0"
-    // default is the last part of your group. Eg group: "com.github.breadmoirai" => owner: "breadmoirai"
-    repo "Markdown-Office" // by default this is set to your project name
-    tagName "CI-${System.properties['os.detected.name']}" // by default this is set to "v${project.version}"
-    targetCommitish "master" // by default this is set to "master"
-    releaseName "CI-${System.properties['os.detected.name']}"
-    // Release title, by default this is the same as the tagName
-    body "" // by default this is empty
-    draft false // by default this is false
-    prerelease false // by default this is false
-    releaseAssets(project.file("${buildDir}/distributions/").listFiles())
-    // this points to which files you want to upload as assets with your release
-    overwrite true // by default false; if set to true, will delete an existing release with the same tag and name
-    apiEndpoint "https://api.github.com" // should only change for github enterprise users
-}
+if (System.getenv("githubtoken") != null)
+    githubRelease {
+        token(System.getenv("githubtoken"))// This is your personal access token with Repo permissions
+        // You get this from your user settings > developer settings
+        // If this value is not set, a login dialog will prompt you for your credentials.
+        // 2fa is not supported
+        owner "samuele0"
+        // default is the last part of your group. Eg group: "com.github.breadmoirai" => owner: "breadmoirai"
+        repo "Markdown-Office" // by default this is set to your project name
+        tagName "CI-${System.properties['os.detected.name']}" // by default this is set to "v${project.version}"
+        targetCommitish "master" // by default this is set to "master"
+        releaseName "CI-${System.properties['os.detected.name']}"
+        // Release title, by default this is the same as the tagName
+        body "" // by default this is empty
+        draft false // by default this is false
+        prerelease false // by default this is false
+        releaseAssets(file("${buildDir}/distributions/").listFiles())
+        // this points to which files you want to upload as assets with your release
+        overwrite true // by default false; if set to true, will delete an existing release with the same tag and name
+        apiEndpoint "https://api.github.com" // should only change for github enterprise users
+    }
 tasks.githubRelease.doFirst {
     println("${buildDir}/distributions/")
-    println(project.file("${buildDir}/distributions/").listFiles().length)
+    println(file("${buildDir}/distributions/").listFiles().length)
 }

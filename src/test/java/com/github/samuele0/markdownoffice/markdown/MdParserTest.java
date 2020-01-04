@@ -22,7 +22,7 @@ public class MdParserTest {
 
     @Before
     public void setUp() throws Exception {
-        when(provider.root()).thenReturn(state);
+        when(provider.get("root")).thenReturn(state);
         when(state.accept(anyChar())).thenReturn(state);
         parser = new MdParser(provider);
     }
@@ -38,7 +38,7 @@ public class MdParserTest {
     public void testProviderCall() {
         String source = "aaaa";
         DocumentNode tree = parser.parse(source);
-        verify(provider, times(1)).root();
+        verify(provider, times(1)).get("root");
     }
 
     @Test
