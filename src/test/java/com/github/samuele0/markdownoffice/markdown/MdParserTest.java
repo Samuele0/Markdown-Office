@@ -67,3 +67,4 @@ public class MdParserTest {
         DocumentNode tree = parser.parse(source);
         verify(state, times(4)).accept('a');
     }
+}

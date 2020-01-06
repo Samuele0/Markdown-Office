@@ -72,7 +72,3 @@ if (System.getenv("githubtoken") != null)
         overwrite true // by default false; if set to true, will delete an existing release with the same tag and name
         apiEndpoint "https://api.github.com" // should only change for github enterprise users
     }
-tasks.githubRelease.doFirst {
-    println("${buildDir}/distributions/")
-    println(file("${buildDir}/distributions/").listFiles().length)
-}
