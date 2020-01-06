@@ -25,8 +25,6 @@ public class MdParserTest {
     @Mock
     ParserState state;
     @Mock
-    Reader reader;
-    @Mock
     Appender appender;
 
     MdParser parser;
@@ -34,17 +32,9 @@ public class MdParserTest {
 
     @Before
     public void setUp() throws Exception {
-        when(reader.read()).thenThrow(new IOException());
         when(provider.get(eq("root"), any())).thenReturn(state);
         when(state.accept(anyChar())).thenReturn(state);
-        ((org.apache.logging.log4j.core.Logger) LogManager.getRootLogger()).addAppender(appender);
         parser = new MdParser(provider);
-    }
-
-    @After
-    public void tearDown() {
-        ((org.apache.logging.log4j.core.Logger) LogManager.getRootLogger()).removeAppender(appender);
-
     }
 
     @Test
