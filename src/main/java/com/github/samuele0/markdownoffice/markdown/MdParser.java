@@ -54,7 +54,7 @@ public class MdParser {
             ret = parse(reader);
             reader.close();
         } catch (IOException e) {
-            log.error(e);
+            throw new Error("StringReader threw exception", e);
         }
         return ret;
     }

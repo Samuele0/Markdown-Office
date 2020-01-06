@@ -2,11 +2,18 @@ package com.github.samuele0.markdownoffice.markdown;
 
 import com.github.samuele0.markdownoffice.document.DocumentNode;
 import com.github.samuele0.markdownoffice.document.DocumentRoot;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.Appender;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import java.io.IOException;
+import java.io.Reader;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -17,14 +24,27 @@ public class MdParserTest {
     ParserStateProvider provider;
     @Mock
     ParserState state;
+    @Mock
+    Reader reader;
+    @Mock
+    Appender appender;
 
     MdParser parser;
 
+
     @Before
     public void setUp() throws Exception {
+        when(reader.read()).thenThrow(new IOException());
         when(provider.get(eq("root"), any())).thenReturn(state);
         when(state.accept(anyChar())).thenReturn(state);
+        ((org.apache.logging.log4j.core.Logger) LogManager.getRootLogger()).addAppender(appender);
         parser = new MdParser(provider);
+    }
+
+    @After
+    public void tearDown() {
+        ((org.apache.logging.log4j.core.Logger) LogManager.getRootLogger()).removeAppender(appender);
+
     }
 
     @Test
@@ -47,4 +67,3 @@ public class MdParserTest {
         DocumentNode tree = parser.parse(source);
         verify(state, times(4)).accept('a');
     }
-}
