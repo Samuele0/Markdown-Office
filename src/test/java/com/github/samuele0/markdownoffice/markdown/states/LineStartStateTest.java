@@ -44,14 +44,17 @@ public class LineStartStateTest {
     public void testSectionStart() {
         testCombination("section", '#');
     }
+
     @Test
     public void testItemize() {
         testCombination("itemize?", '*');
     }
+
     @Test
     public void testBlock() {
         testCombination("block1", '~');
     }
+
     @Test
     public void testText() {
         testCombination("text", 'a');
@@ -60,6 +63,7 @@ public class LineStartStateTest {
     private void testCombination(String value, char symbol) {
         ParserState fakeState = mock(ParserState.class);
         when(provider.get(eq(value), any())).thenReturn(fakeState);
+        when(fakeState.accept(anyChar())).thenReturn(fakeState);
         ParserState state = lineStartState.accept(symbol);
         verify(provider, times(1)).get(eq(value), any());
         assertSame(fakeState, state);
