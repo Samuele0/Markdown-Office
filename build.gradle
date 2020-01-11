@@ -44,7 +44,7 @@ jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
         name = 'Markdown Office'
-        jvmArgs = ['--add-opens', 'java.base/java.lang=com.github.samuele0.markdownoffice.merged.module', '--module-path', '$DIR/../plugins/*']
+        jvmArgs = ['--add-opens', 'java.base/java.lang=com.github.samuele0.markdownoffice.merged.module', '--module-path', '../plugins/*.jar']
 
     }
     forceMerge('log4j-api')
