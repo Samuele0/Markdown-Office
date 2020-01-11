@@ -1,9 +1,11 @@
 package com.github.samuele0.markdownoffice;
 
+import com.github.samuele0.markdownoffice.plugins.impl.PluginConfigurationImpl;
 import com.google.inject.*;
 import com.google.inject.Module;
 import com.google.inject.name.Names;
 import github.samuele0.plugins.Plugin;
+import github.samuele0.plugins.PluginConfiguration;
 import javafx.fxml.FXMLLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +31,7 @@ public class MyFxmlLoader extends FXMLLoader {
         @Override
         public void configure(Binder binder) {
             bindConfiguration(binder);
+            binder.bind(PluginConfiguration.class).to(PluginConfigurationImpl.class);
         }
 
         private void bindConfiguration(Binder binder) {
