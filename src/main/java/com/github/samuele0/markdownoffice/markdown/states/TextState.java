@@ -1,9 +1,9 @@
 package com.github.samuele0.markdownoffice.markdown.states;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
-import com.github.samuele0.markdownoffice.document.TextNode;
-import com.github.samuele0.markdownoffice.markdown.ParserState;
-import com.github.samuele0.markdownoffice.markdown.ParserStateProvider;
+import github.samuele0.plugins.ParserState;
+import github.samuele0.plugins.ParserStateProvider;
+import github.samuele0.plugins.document.DocumentNode;
+import github.samuele0.plugins.document.TextNode;
 
 /**
  * This state handles the parsing of a single line of markdown textual content.
@@ -19,6 +19,7 @@ public class TextState extends ParserState {
         super(parent, provider);
         builder = new StringBuilder();
     }
+
 
     @Override
     public ParserState accept(char a) {

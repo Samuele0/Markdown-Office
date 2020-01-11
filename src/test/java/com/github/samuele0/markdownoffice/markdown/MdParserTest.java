@@ -1,21 +1,17 @@
 package com.github.samuele0.markdownoffice.markdown;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
-import com.github.samuele0.markdownoffice.document.DocumentRoot;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import github.samuele0.plugins.ParserState;
+import github.samuele0.plugins.ParserStateProvider;
+import github.samuele0.plugins.document.DocumentNode;
+import github.samuele0.plugins.document.DocumentRoot;
 import org.apache.logging.log4j.core.Appender;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.io.IOException;
-import java.io.Reader;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)

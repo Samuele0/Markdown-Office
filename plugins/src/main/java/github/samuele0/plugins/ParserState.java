@@ -1,8 +1,6 @@
-package com.github.samuele0.markdownoffice.markdown;
+package github.samuele0.plugins;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
-import com.google.inject.Inject;
-
+import github.samuele0.plugins.document.DocumentNode;
 /**
  * Implementation of a state in the state machine.
  * <p>
@@ -18,7 +16,6 @@ public abstract class ParserState {
     private ParserStateProvider provider;
     private ParserState previous;
 
-    @Inject
     public ParserState(DocumentNode parent, ParserStateProvider provider) {
         this.parent = parent;
         this.provider = provider;

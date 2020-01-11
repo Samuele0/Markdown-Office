@@ -1,15 +1,15 @@
 package com.github.samuele0.markdownoffice.markdown.states;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
-import com.github.samuele0.markdownoffice.markdown.ParserState;
-import com.github.samuele0.markdownoffice.markdown.ParserStateProvider;
+import github.samuele0.plugins.ParserState;
+import github.samuele0.plugins.ParserStateProvider;
+import github.samuele0.plugins.document.DocumentNode;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertSame;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;

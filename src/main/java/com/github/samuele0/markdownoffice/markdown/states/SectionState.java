@@ -1,10 +1,10 @@
 package com.github.samuele0.markdownoffice.markdown.states;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
-import com.github.samuele0.markdownoffice.document.DocumentSection;
-import com.github.samuele0.markdownoffice.document.Header;
-import com.github.samuele0.markdownoffice.markdown.ParserState;
-import com.github.samuele0.markdownoffice.markdown.ParserStateProvider;
+import github.samuele0.plugins.document.DocumentNode;
+import github.samuele0.plugins.document.DocumentSection;
+import github.samuele0.plugins.document.Header;
+import github.samuele0.plugins.ParserState;
+import github.samuele0.plugins.ParserStateProvider;
 
 public class SectionState extends ParserState {
     private DocumentSection section;

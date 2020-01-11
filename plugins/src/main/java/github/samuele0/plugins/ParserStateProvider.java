@@ -1,6 +1,6 @@
-package com.github.samuele0.markdownoffice.markdown;
+package github.samuele0.plugins;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
+import github.samuele0.plugins.document.DocumentNode;
 
 import java.util.function.BiFunction;
 import java.util.function.Supplier;

@@ -1,4 +1,4 @@
-package com.github.samuele0.markdownoffice.document;
+package github.samuele0.plugins.document;
 
 public class DocumentSection extends DocumentNode {
     private int level;

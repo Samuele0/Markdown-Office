@@ -1,8 +1,8 @@
 package com.github.samuele0.markdownoffice.markdown.states;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
-import com.github.samuele0.markdownoffice.markdown.ParserState;
-import com.github.samuele0.markdownoffice.markdown.ParserStateProvider;
+import github.samuele0.plugins.document.DocumentNode;
+import github.samuele0.plugins.ParserState;
+import github.samuele0.plugins.ParserStateProvider;
 
 /**
  * This state handles redirecting the parsing of the line to the proper state.
@@ -25,7 +25,9 @@ public class LineStartState extends ParserState {
             case '\n':
                 return this;
             default:
-                return getProvider().get("text", getParent());
+                ParserState text = getProvider().get("text", getParent());
+                text.setPrevious(this);
+                return text.accept(a);
         }
     }
 }

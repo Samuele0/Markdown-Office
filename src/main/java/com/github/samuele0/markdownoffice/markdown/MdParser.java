@@ -1,7 +1,9 @@
 package com.github.samuele0.markdownoffice.markdown;
 
-import com.github.samuele0.markdownoffice.document.DocumentNode;
-import com.github.samuele0.markdownoffice.document.DocumentRoot;
+import github.samuele0.plugins.ParserState;
+import github.samuele0.plugins.ParserStateProvider;
+import github.samuele0.plugins.document.DocumentNode;
+import github.samuele0.plugins.document.DocumentRoot;
 import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
